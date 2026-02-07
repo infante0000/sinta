@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sinta</title>
+    <link rel="icon" type="image/png" href="/media/heart-pink.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.7.1/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.7.1/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+    <script
+      src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.7.1/dist/dotlottie-wc.js"
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="glitter">
+      <!-- repeat ~25–35 spans -->
+      <span style="left: 5%; animation-delay: 0s"></span>
+      <span style="left: 15%; animation-delay: 3s"></span>
+      <span style="left: 25%; animation-delay: 6s"></span>
+      <span style="left: 35%; animation-delay: 1s"></span>
+      <span style="left: 45%; animation-delay: 4s"></span>
+      <span style="left: 55%; animation-delay: 7s"></span>
+      <span style="left: 65%; animation-delay: 2s"></span>
+      <span style="left: 75%; animation-delay: 5s"></span>
+      <span style="left: 85%; animation-delay: 8s"></span>
+    </div>
+
+    <div id="app">
+      <!-- BOOT -->
+      <section class="screen active" id="boot">
+        <dotlottie-wc
+          id="bootLoad"
+          src="https://lottie.host/e376961e-1277-4017-a35b-0c0e0e5b1f5a/k01uvCfXqI.lottie"
+          speed="1"
+          mode="reverse-bounce"
+          loop
+          autoplay
+        >
+        </dotlottie-wc>
+        <p class="mono" id="bootText">Initializing secure session…</p>
+        <button id="bootBtn" class="hidden" onclick="nextScreen('info')">
+          Begin
+        </button>
+      </section>
+
+      <!-- IDENTITY -->
+      <section class="screen" id="info">
+        <h2>Identity Check</h2>
+        <p class="soft">Just making sure you are not a bot.</p>
+
+        <div id="statusBubble" class="bubble hidden"></div>
+
+        <label>Your Name <span class="req">*</span></label>
+        <input id="name" />
+        <small class="error" id="err-name"></small>
+
+        <label>Your Birthday <span class="req">*</span></label>
+        <input type="date" id="birthday" />
+        <small class="error" id="err-bday"></small>
+
+        <label>Relationship status <span class="req">*</span></label>
+        <select id="relationship" onchange="clearBubble()">
+          <option value="">Select</option>
+          <option>Single</option>
+          <option>In a relationship</option>
+          <option>Married</option>
+          <option>Widowed</option>
+        </select>
+
+        <button onclick="validateIdentity()">Continue</button>
+      </section>
+
+      <!-- PARTNER -->
+      <section class="screen" id="partner">
+        <h2>Partner Verification</h2>
+        <p class="soft">Taken? Who's the lucky girl?</p>
+
+        <div id="partnerBubble" class="bubble hidden"></div>
+
+        <label>Partner’s name <span class="req">*</span></label>
+        <input id="partnerName" />
+
+        <button onclick="verifyPartner()">Verify</button>
+      </section>
+
+      <!-- ACCESS -->
+      <section class="screen" id="access">
+        <dotlottie-wc
+          src="https://lottie.host/cf6b6ab8-da30-4ded-8a6f-5de9c907e8d1/aXR4KNGsNz.lottie"
+          speed="0.5"
+          mode="forward"
+          loop
+          autoplay
+        ></dotlottie-wc>
+        <p class="mono">Access granted. Preparing invitation...</p>
+      </section>
+
+      <!-- FEB 15 -->
+      <section class="screen float" id="feb15">
+        <div id="feb15date">
+          <h2>February 15</h2>
+          <p>Are you free at <strong>5:00 PM</strong>?</p>
+
+          <button onclick="confirmFeb15()">
+            I’m free 💗<br />(wala na kong no choice)
+          </button>
+        </div>
+        <div id="feb15Details" class="hidden float">
+          <dotlottie-wc
+            src="https://lottie.host/613370bb-f025-4d0c-ac8f-bf89e44a0f9b/Yytg7V2Cb0.lottie"
+            speed="1"
+            mode="reverse-bounce"
+            loop
+            autoplay
+          ></dotlottie-wc>
+          <p class="soft">
+            <strong>WHEN: </strong> Feb. 15 (Sunday), 5PM<br />
+            <strong>WHERE: </strong> Shore 2 Tower 2 - Unit 0630<br />
+            <strong>AGENDA: </strong> Just Movie and Chill with a lil bit of
+            nomnoms.
+          </p>
+          <button onclick="addFeb15()">Add to Calendar 📅</button>
+          <button class="ghost" onclick="nextScreen('feb16')">
+            Notid with tenks!
+          </button>
+        </div>
+      </section>
+
+      <!-- FEB 16 -->
+      <section class="screen float" id="feb16">
+        <div id="feb16date">
+          <h2>February 16</h2>
+          <p class="soft">Kala mo tapos na? Pwes, issa prank</p>
+
+          <button onclick="confirmFeb16()">Sige G pa</button>
+        </div>
+        <div id="feb16Details" class="hidden float">
+          <dotlottie-wc
+            src="https://lottie.host/6029e8e8-99e8-4f6f-97a4-c979de6380a1/QCY5PmUibJ.lottie"
+            speed="1"
+            mode="forward"
+            loop
+            autoplay
+          >
+          </dotlottie-wc>
+          <p class="soft">
+            <strong>WHEN: </strong> Feb. 16 (Monday), 11AM<br />
+            <strong>WHERE: </strong> SM Megamall, Ortigas<br />
+            <strong>AGENDA: </strong> Bake, Snap, & Sunsets
+          </p>
+          <p>Choose at least <strong>3</strong> lunch vibes:</p>
+
+          <div class="choices" id="lunchChoices"></div>
+
+          <small id="choiceHint">Pick 3. You can change your mind.</small>
+
+          <button id="feb16Actions" class="hidden" onclick="addFeb16()">
+            Add to Calendar 📅
+          </button>
+          <button
+            id="feb16Next"
+            class="ghost hidden"
+            onclick="nextScreen('closing')"
+          >
+            Continue
+          </button>
+        </div>
+      </section>
+
+      <!-- CLOSING -->
+      <section class="screen" id="closing">
+        <h2>It's a DATE!</h2>
+        <p class="soft">See you, mahal 💗</p>
+
+        <div class="spotify-card">
+          <iframe
+            data-testid="embed-iframe"
+            style="border-radius: 12px"
+            src="https://open.spotify.com/embed/track/4179FSxWNhqupr6nRwJYkm?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              fullscreen;
+              picture-in-picture;
+            "
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <button onclick="sendSummary()">Send Summary ✉️</button>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

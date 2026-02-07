@@ -241,3 +241,8 @@ Message:
     "&body=" +
     encodeURIComponent(body);
 }
+
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+}

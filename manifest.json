@@ -2,7 +2,7 @@
   "name": "sinta",
   "short_name": "sinta",
   "start_url": ".",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#1a2440",
   "theme_color": "#1a2440",
   "icons": [

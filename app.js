@@ -131,7 +131,7 @@ function addFeb15() {
     "https://www.google.com/calendar/render?action=TEMPLATE" +
     "&text=Date+Night" +
     "&dates=20260215T090000Z/20260215T130000Z" +
-    "&details=Condo+dinner+and+movie+night";
+    "&details=Dinner+and+movie+night+at+Condo";
 
   window.open(url, "_blank");
 }
@@ -204,7 +204,7 @@ function addFeb16() {
     "https://www.google.com/calendar/render?action=TEMPLATE" +
     "&text=Lunch+Baking+Date" +
     "&dates=20260216T060000Z/20260216T100000Z" +
-    "&details=Bake+,+Snap,+&+Sunsets";
+    "&details=Bake+,+Snap+,+&+Sunsets";
 
   window.open(url, "_blank");
 }

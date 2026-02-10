@@ -1,14 +1,20 @@
 {
-  "name": "sinta",
-  "short_name": "sinta",
-  "start_url": ".",
-  "display": "fullscreen",
-  "background_color": "#1a2440",
-  "theme_color": "#1a2440",
+  "name": "Sinta Ko",
+  "short_name": "Sinta 💗",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f1428",
+  "theme_color": "#ff8fab",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "/media/heart-pink.png",
+      "src": "media/heart-pink.png",
       "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "media/heart-pink.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]
